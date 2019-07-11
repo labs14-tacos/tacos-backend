@@ -21,13 +21,13 @@ exports.up = function(knex) {
       .unique();
 
     tbl
-      .string('userPhoto')
+      .string('userPhoto');
 
     tbl
-      .integer('birthDate')
+      .integer('birthDate');
 
     tbl
-      .string('status', 255)
+      .string('status', 255);
   })
 };
 
