@@ -7,7 +7,12 @@
     "knex": "^0.18.3",
     "pg": "^7.11.0"
   },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
   "devDependencies": {
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }
