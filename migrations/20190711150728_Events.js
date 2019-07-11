@@ -16,22 +16,20 @@ exports.up = function(knex) {
 
     tbl
       .timestamp('timestampStart')
-      .notNullable();
 
     tbl
       .timestamp('timestampFinish')
-      .notNullable();
 
     tbl
       .timestamp('createdAt')
-      .notNullable();
+      .defaultTo(knex.fn.now())
 
     tbl
       .text('address');
 
     tbl
       .boolean('private')
-      .defaultsTo(true)
+      .defaultTo(true)
   })
 };
 

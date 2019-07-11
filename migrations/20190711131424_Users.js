@@ -1,19 +1,17 @@
 exports.up = function(knex) {
-  return knex.schema.creteTable('Users', tbl => {
+  return knex.schema.createTable('Users', tbl => {
     tbl.increments();
 
     tbl
-      .integer('firebaseId')
+      .string('firebaseId')
       .notNullable()
       .unique();
 
     tbl
       .string('firstName', 255)
-      .notNullable();
 
     tbl
       .string('lastName', 255)
-      .notNullable();
 
     tbl
       .string('email', 255)
@@ -23,11 +21,10 @@ exports.up = function(knex) {
     tbl
       .string('userPhoto');
 
-    tbl
-      .integer('birthDate');
+      // add in birthDate
 
-    tbl
-      .string('status', 255);
+    // tbl
+    //   .string('status', 255);
   })
 };
 
