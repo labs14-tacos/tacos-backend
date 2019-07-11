@@ -6,6 +6,10 @@ module.exports = {
     client: 'sqlite3',
     connection: {
       filename: './data/tacos.sqlite3'
+    },
+    useNullAsDefault: true,
+    seeds: {
+      directory: './seeds',
     }
   },
 
@@ -22,6 +26,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './seeds',
     }
   },
 
@@ -38,6 +45,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
+    },
+    seeds: {
+      directory: './seeds',
     }
   }
 
