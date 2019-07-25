@@ -6,11 +6,12 @@ exports.up = function(knex) {
     .integer('userId')
     .unsigned()
     .references('id')
-    .inTable('Users');
+    .inTable('Users')
+    .onDelete('CASCADE')
+    .onUpdate('CASCADE');
 
   tbl
-    .string('typeOfTaco', 255)
-    .notNullable();
+    .string('typeOfTaco', 255);
 
   tbl
     .string('tacoLogPhoto');
@@ -25,6 +26,22 @@ exports.up = function(knex) {
   
   tbl
     .text('notes')
+
+  tbl
+    .integer('date')
+
+  tbl
+    .text('tacoName')
+
+  tbl
+    .text('address')
+
+  tbl
+    .text('userExperience')
+
+
+  tbl
+    .timestamp('reviewedAt')
   })
 };
 

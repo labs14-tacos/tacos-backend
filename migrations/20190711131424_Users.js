@@ -9,9 +9,11 @@ exports.up = function(knex) {
 
     tbl
       .string('firstName', 255)
+      .notNullable()
 
     tbl
       .string('lastName', 255)
+      .notNullable()
 
     tbl
       .string('email', 255)
@@ -21,13 +23,51 @@ exports.up = function(knex) {
     tbl
       .string('userPhoto');
 
-      // add in birthDate
+    tbl
+      .integer('zipCode')
+      .notNullable()
 
-    // tbl
-    //   .string('status', 255);
+    tbl
+      .integer('tacosPerMonth')
+
+    tbl
+      .text('hardOrSoft')
+
+    tbl
+      .text('cornOrFlower')
+
+    tbl
+      .integer('heatPreference')
+
+    tbl
+      .text('streetOrGourmet')
+
+    tbl
+      .text('favTaco')
+
+    tbl
+      .text('favTacoLocation')
+
+    tbl
+      .text('bestTacoMemory')
+
+    tbl
+      .text('instaHandle')
+
+    tbl
+      .text('twitterHandle')
+
+    tbl
+      .text('facebookPage')
+
+    tbl
+      .text('website')
+      
+
+      
   })
 };
 
-exports.down = function(knex) {
+exports.down = function(knex, Promise) {
   return knex.schema.dropTableIfExists('Users');
 };
