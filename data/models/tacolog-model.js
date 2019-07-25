@@ -3,7 +3,9 @@ const db = require('../dbConfig');
 module.exports = {
   add,
   find,
-  findById
+  findById,
+  findUserTacosById
+
 }
 
 async function add(tacolog) {
@@ -22,4 +24,12 @@ function findById(id) {
       id
     })
     .first();
+}
+
+function findUserTacosById(userId) {
+  return db('TacoLog')
+    .where({
+      userId: userId
+    })
+    
 }

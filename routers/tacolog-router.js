@@ -39,6 +39,21 @@ router.get('/', async(req, res) => {
     }
   });
 
+  router.get('/:userId/tacolog', async(req, res) => {
+    try {
+       const test = await TacoLogs.findUserTacosById(req.params.userId)
+       res 
+        .status(200)
+        .json(test)
+    } catch (error) {
+      res
+       .status(500)
+       .json({
+          message: 'There was an error retrieving these users.'
+       })
+    }
+  }) 
+
 
 
   router.post('/', async (req, res) => {
