@@ -63,8 +63,6 @@ exports.up = function(knex) {
     tbl
       .text('website')
       
-
-      
   })
 };
 

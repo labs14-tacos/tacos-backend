@@ -6,21 +6,20 @@ module.exports = {
   findById
 }
 
-async function add(user) {
-  const [id] = await db('Users')
-    .insert(user, 'id')
+async function add(tacolog) {
+  const [id] = await db('TacoLog')
+    .insert(tacolog, 'id')
   return findById(id)
 }
 
 function find() {
-  return db('Users')
+  return db('TacoLog')
 }
 
 function findById(id) {
-  return db('Users')
+  return db('TacoLog')
     .where({
       id
     })
     .first();
 }
-

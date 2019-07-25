@@ -8,3 +8,12 @@ describe('POST /api/user', () => {
     expect(response.type).toBe('application/json');
   })
 })
+
+
+describe('GET /api/users', () => {
+   it("Should return status code 200", ()  => {
+     return request(server)
+      .get("/api/users")
+      .expect(200)
+   })
+})

@@ -4,7 +4,7 @@ exports.seed = function (knex, Promise) {
     {
       "id": 1,
       "userId": 1,
-      "date": 01022019,
+      "date": 01022,
       "tacoName": "chicken taco",
       "tacoLogPhoto": "http://unsplash.it/150/150",
       "restaurantName": "Albertos",
@@ -18,7 +18,7 @@ exports.seed = function (knex, Promise) {
     {
       "id": 2,
       "userId": 2,
-      "date": 01232019,
+      "date": 01232,
       "tacoName": "beef taco",
       "tacoLogPhoto": "http://unsplash.it/150/151",
       "restaurantName": "del taco",
@@ -31,7 +31,7 @@ exports.seed = function (knex, Promise) {
     {
       "id": 3,
       "userId": 3,
-      "date": 02212019,
+      "date": 02212,
       "tacoName": "fish taco",
       "tacoLogPhoto": "http://unsplash.it/150/152",
       "restaurantName": "taco bell",

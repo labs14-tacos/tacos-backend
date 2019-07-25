@@ -23,8 +23,10 @@ router.get('/', async(req, res) => {
 // POST REQUEST
 
 router.post('/', async (req, res) => {
+  console.log(req.body)
   try {
     const user = await Users.add(req.body);
+    
     res
       .status(201)
       .json(user);

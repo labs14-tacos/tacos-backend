@@ -5,6 +5,7 @@ const helmet = require('helmet');
 
 // Routers
 const usersRouter = require('../routers/users-router');
+const tacoLogRouter = require('../routers/tacolog-router');
 
 //Server Invocation
 const server = express();
@@ -16,6 +17,7 @@ server.use(helmet());
 server.use(logger);
 
 server.use('/api/users', usersRouter);
+server.use('/tacolog', tacoLogRouter);
 
 // Sanity check 
 server.get('/', (req, res) => {
