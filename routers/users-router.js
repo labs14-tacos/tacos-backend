@@ -20,6 +20,22 @@ router.get('/', async(req, res) => {
   }
 });
 
+// FindByID
+router.get('/:id', async(req, res) => {
+  try {
+    const users = await Users.findById(req.params.id);
+    res
+      .status(200)
+      .json(users);
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: 'There was an error retrieving these users.'
+      });
+  }
+});
+
 // POST REQUEST
 
 router.post('/', async (req, res) => {

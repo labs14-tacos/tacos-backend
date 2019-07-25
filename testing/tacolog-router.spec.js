@@ -16,3 +16,12 @@ describe('GET /', () => {
        .expect(200)
     })
  })
+
+ describe('GET /id', () => {
+  it("Should return status code 200", ()  => {
+    return request(server)
+     .get("/tacolog/:id")
+     .expect(200)
+  })
+})
+  

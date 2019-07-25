@@ -17,3 +17,11 @@ describe('GET /api/users', () => {
       .expect(200)
    })
 })
+
+describe('GET /api/users/id', () => {
+  it("Should return status code 200", ()  => {
+    return request(server)
+     .get("/api/users/:id")
+     .expect(200)
+  })
+})

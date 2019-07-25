@@ -6,6 +6,7 @@ const TacoLogs = require('../data/models/tacolog-model');
 
 // GET REQUESTS
 
+// GET ALL Tacologs
 router.get('/', async(req, res) => {
     try {
       const tacologs = await TacoLogs.find();
@@ -20,6 +21,25 @@ router.get('/', async(req, res) => {
         });
     }
   });
+
+
+// GET Tacologs by ID
+  router.get('/:id', async(req, res) => {
+    try {
+      const tacologs = await TacoLogs.findById(req.params.id);
+      res
+        .status(200)
+        .json(tacologs);
+    } catch (error) {
+      res
+        .status(500)
+        .json({
+          message: 'There was an error retrieving these users.'
+        });
+    }
+  });
+
+
 
   router.post('/', async (req, res) => {
     try {
