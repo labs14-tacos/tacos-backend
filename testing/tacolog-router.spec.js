@@ -24,4 +24,12 @@ describe('GET /', () => {
      .expect(200)
   })
 })
+
+describe('GET /tacolog/:userId/tacolog', () => {
+  it('Should return a status code of 200', () => {
+    return request(server)
+    .get('/tacolog/:userId/tacolog')
+    .expect(200)
+  })
+})
   

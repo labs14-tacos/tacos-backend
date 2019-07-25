@@ -39,6 +39,7 @@ router.get('/', async(req, res) => {
     }
   });
 
+  // Get All Tacologs by User ID
   router.get('/:userId/tacolog', async(req, res) => {
     try {
        const test = await TacoLogs.findUserTacosById(req.params.userId)
