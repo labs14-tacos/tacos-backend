@@ -1,6 +1,10 @@
 const db = require('../data/dbConfig');
+// const Users = require('../data/models/users-model');
 
-const Users = require('../data/models/users-model');
+// new stuff
+const {add} = require('../data/models/users-model')
+const request = require('supertest')
+const server = require('../api/server')
 
 describe('Users Model', () => {
 
@@ -9,11 +13,9 @@ describe('Users Model', () => {
         .truncate();
     })
 
-    describe('add()', () => {
-
-        it('will add users to the db', async () => {
-
-            const user = {
+    describe('Add a new user', () => {
+        it('should insert a new user', async () => {
+            await add ({
                 id: 1,
                 firebaseId: "ThisIsAFakeFirebaseId",
                 firstName: "Jamie",
@@ -33,26 +35,31 @@ describe('Users Model', () => {
                 twitterHandle: "twitter goes here",
                 facebookPage: "facebook page goes here",
                 website: "espn.com"
-            }
-            
-            await Users.add(user)
+            })
+
             const newUser = await db('Users')
             expect(newUser).toHaveLength(1)
-            
         })
-    })
 
-    describe('update()', () => {
+        it('should output a 404 due to insufficient content', async () => {
+            let newUser = {firstName: "Jamie"}
 
-        it('will add users to the db', async () => {
+            const res = await request(server)
+                              .post('/api/users')
+                              .send(newUser)
+            expect(res.statusCode)
+            .toEqual(404)
+        })
 
-            const changes = {
-                id: 1,
-                firebaseId: "ThisIsAFakeFirebaseId2",
+
+        it('should output a 201 succes code', async () => {
+            let newUser = {
+                id: 5,
+                firebaseId: "ThisIsAFakeFirebaseId33",
                 firstName: "Jamie",
                 lastName: "Jamison",
-                email: "jamietheman2@hotmail.com",
-                userPhoto: "http://unsplash.it/101/100",
+                email: "jamietheman33@hotmail.com",
+                userPhoto: "http://unsplash.it/100/100",
                 zipCode: 92392,
                 tacosPerMonth: 5,
                 hardOrSoft: "soft",
@@ -67,11 +74,12 @@ describe('Users Model', () => {
                 facebookPage: "facebook page goes here",
                 website: "espn.com"
             }
-            
-            await Users.update(changes)
-            const updateUser = await db('Users')
-            expect(updateUser).toEqual(changes)
-            
+
+            const res = await request(server)
+                              .post('/api/users')
+                              .send(newUser)
+            expect(res.statusCode)
+            .toBe(201)
         })
     })
 })
