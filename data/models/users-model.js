@@ -4,7 +4,8 @@ module.exports = {
   add,
   find,
   findById,
-  update
+  update,
+  removeUser
 }
 
 async function add(user) {
@@ -28,5 +29,11 @@ function findById(id) {
 function update(id, changes) {
   return db('Users')
   .where('id', id)
-  .update(changes)
+  .update(changes);
+}
+
+async function removeUser(id) {
+  return db('Users')
+  .where({id})
+  .del();
 }

@@ -41,4 +41,37 @@ describe('Users Model', () => {
             
         })
     })
+
+    describe('update()', () => {
+
+        it('will add users to the db', async () => {
+
+            const changes = {
+                id: 1,
+                firebaseId: "ThisIsAFakeFirebaseId2",
+                firstName: "Jamie",
+                lastName: "Jamison",
+                email: "jamietheman2@hotmail.com",
+                userPhoto: "http://unsplash.it/101/100",
+                zipCode: 92392,
+                tacosPerMonth: 5,
+                hardOrSoft: "soft",
+                cornOrFlower: "flower",
+                heatPreference: 5,
+                streetOrGourmet: "street",
+                favTaco: "chicken",
+                favTacoLocation: "Los Cuscos",
+                bestTacoMemory: "homemade tacos",
+                instaHandle: "Instagram goes here",
+                twitterHandle: "twitter goes here",
+                facebookPage: "facebook page goes here",
+                website: "espn.com"
+            }
+            
+            await Users.update(changes)
+            const updateUser = await db('Users')
+            expect(updateUser).toEqual(changes)
+            
+        })
+    })
 })

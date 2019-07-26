@@ -26,10 +26,10 @@ function findById(id) {
     .first();
 }
 
+// Finds all tacologs by UserID
 function findUserTacosById(userId) {
   return db('TacoLog')
     .where({
       userId: userId
     })
-    
 }

@@ -56,7 +56,7 @@ router.get('/', async(req, res) => {
   }) 
 
 
-
+// POST a new TacoLog
   router.post('/', async (req, res) => {
     try {
        const tacolog = await TacoLogs.add(req.body)
@@ -69,5 +69,6 @@ router.get('/', async(req, res) => {
       })
     }
   })
+
 
   module.exports = router;

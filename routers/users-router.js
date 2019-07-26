@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
+
     const id = req.params.id 
     const test = await Users.update(id, req.body)
 
@@ -95,5 +96,25 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+
+router.delete('/:id', async (req, res) => {
+  try {
+    
+    const test = await Users.removeUser(req.params.id)
+
+   if (test > 0){
+     res.status(204).end();
+   } else {
+     res.status(404).json({
+       message: "User deleted"
+     })
+   }
+
+  } catch (error) {
+    res.status(500).json({
+      message: "There was a server error"
+    })
+  }
+})
 
 module.exports = router;
