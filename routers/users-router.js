@@ -55,4 +55,45 @@ router.post('/', async (req, res) => {
   }
 });
 
+// router.put('/:id', async (req, res) => {
+//   try {
+//     const user = await db('Users')
+//     .where({ user_id: req.params.id})
+//     .update(req.body)
+//     .then(count => {
+//       if(count > 0){
+//         res.status(202).json(user) 
+//        } else {
+//         res.status(404).json(error)
+//     }
+//    })
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({
+//         message: 'There was an error adding this user.'
+//       });
+//   }
+// })
+
+router.put('/:id', async (req, res) => {
+  try {
+    const id = req.params.id 
+    const test = await Users.update(id, req.body)
+
+   if (!id){
+      res.status(404).json({
+        message: "The ID could not be found"
+      })
+    } else {
+      res.status(200).json(test)
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "There was a server error"
+    })
+  }
+})
+
+
 module.exports = router;
