@@ -52,7 +52,7 @@ describe('Users Model', () => {
         })
 
 
-        it('should output a 201 succes code', async () => {
+        it('should output a 201 success code', async () => {
             let newUser = {
                 id: 5,
                 firebaseId: "ThisIsAFakeFirebaseId33",
@@ -82,4 +82,60 @@ describe('Users Model', () => {
             .toBe(201)
         })
     })
+
+    describe('Find User By ID', () => {
+        it('should output a 404 if the ID is not found',  () => {
+             request(server)
+            .get('/api/users/31')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(404);
+            // let findId = {id: 21}              CAN REMOVE THIS
+            //                   .get('/api/users/21')
+            //                   .send(findId)
+            // expect(res.statusCode)
+            // .toBe(404)
+        })
+    })
+
+    describe('Find User By ID', () => {
+        it('should output a 200 if successful', () => {
+            let Id = 2
+            request(server)
+            .get(`/api/users/${Id}`)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200);
+
+            // const res = await request(server)   CAN REMOVE THIS
+            //                   .get('/api/users/2')
+            //                   .send(findID)
+            // expect(res.statusCode)
+            // .toBe(200)
+            
+        })
+    })
+
+    describe('Find User By ID', () => {
+        it('should output a 500 if server error', () => {
+            request(server)
+            .get('/api/users/')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(500);
+
+            // let findID = {id: 2}         CAN REMOVE THIS
+
+            // const res = await request(server)
+            //                   .get('/api/users/2')
+            //                   .send(findID)
+            // expect(res.statusCode)
+            // .toBe(200)
+           
+        })
+    })
+
+
+
+
 })

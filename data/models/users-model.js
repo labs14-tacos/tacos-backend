@@ -21,7 +21,7 @@ function find() {
 function findById(id) {
   return db('Users')
     .where({
-      id
+      'id': id
     })
     .first();
 }

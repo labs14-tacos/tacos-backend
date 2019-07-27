@@ -1,6 +1,7 @@
 const request = require('supertest');
 const server = require('../api/server');
 
+
 describe('POST /api/user', () => {
   it('should post user as application/json', async () => {
     const response = await request(server).post('/api/users')
@@ -12,16 +13,27 @@ describe('POST /api/user', () => {
 
 describe('GET /api/users', () => {
    it("Should return status code 200", ()  => {
-     return request(server)
-      .get("/api/users")
-      .expect(200)
+     
+      // .get("/api/users")  can remvoe this
+      // .expect(200)
+    
+      request(server)
+      .get(`/api/users/`)
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200);
    })
 })
 
 describe('GET /api/users/id', () => {
   it("Should return status code 200", ()  => {
-    return request(server)
-     .get("/api/users/:id")
-     .expect(200)
+    //  .get("/api/users/2") can remove this
+    //  .expect(200)
+    let Id = 2
+     request(server)
+      .get(`/api/users/${Id}`)
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200);
   })
 })

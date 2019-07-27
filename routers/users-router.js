@@ -20,21 +20,40 @@ router.get('/', async(req, res) => {
   }
 });
 
-// FindByID
-router.get('/:id', async(req, res) => {
+// FindByID  CAN REMOVE THIS
+// router.get('/:id', async(req, res) => {
+//   try {
+//     const users = await Users.findById(req.params.id);
+//     res
+//       .status(200)
+//       .json(users);
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({
+//         message: 'There was an error retrieving these users.'
+//       });
+//   }
+// });
+
+// Find By Id
+router.get('/:id', async (req, res) => {
   try {
-    const users = await Users.findById(req.params.id);
-    res
-      .status(200)
-      .json(users);
+    const test = await Users.findById(req.params.id)
+    if(test.length == 0){
+      res.status(404).json({
+        message: "The ID could not be found"
+      })
+    } else {
+      res.status(200).json(test)
+    }
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: 'There was an error retrieving these users.'
-      });
+    res.status(500).json({
+      message: "There was a server error"
+    })
   }
-});
+})
+
 
 // POST REQUEST
 
