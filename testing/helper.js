@@ -58,65 +58,38 @@ const user1 = {
     facebookPage: "facebook page goes here",
     website: "espn.com"
   }
-//   const user4 = {
-//     firebaseId: "ThisIsAFakeFirebaseId8",
-//     firstName: "Jamie",
-//     lastName: "Jamison",
-//     email: "jamietheman8@hotmail.com",
-//     userPhoto: "http://unsplash.it/100/100",
-//     zipCode: 92392,
-//     tacosPerMonth: 5,
-//     hardOrSoft: "soft",
-//     cornOrFlower: "flower",
-//     heatPreference: 5,
-//     streetOrGourmet: "street",
-//     favTaco: "chicken",
-//     favTacoLocation: "Los Cuscos",
-//     bestTacoMemory: "homemade tacos",
-//     instaHandle: "Instagram goes here",
-//     twitterHandle: "twitter goes here",
-//     facebookPage: "facebook page goes here",
-//     website: "espn.com"
-//   }
-//   const user5 = {
-//     firebaseId: "ThisIsAFakeFirebaseId9",
-//     firstName: "Julie",
-//     lastName: "Jamison",
-//     email: "jamietheman8@hotmail.com",
-//     userPhoto: "http://unsplash.it/100/100",
-//     zipCode: 92392,
-//     tacosPerMonth: 5,
-//     hardOrSoft: "soft",
-//     cornOrFlower: "flower",
-//     heatPreference: 5,
-//     streetOrGourmet: "street",
-//     favTaco: "chicken",
-//     favTacoLocation: "Los Cuscos",
-//     bestTacoMemory: "homemade tacos",
-//     instaHandle: "Instagram goes here",
-//     twitterHandle: "twitter goes here",
-//     facebookPage: "facebook page goes here",
-//     website: "espn.com"
-//   }
-//   const user6 = {
-//     firebaseId: "ThisIsAFakeFirebaseId10",
-//     firstName: "Jamie",
-//     lastName: "Jamison",
-//     email: "jamietheman10@hotmail.com",
-//     userPhoto: "http://unsplash.it/100/100",
-//     zipCode: 92392,
-//     tacosPerMonth: 5,
-//     hardOrSoft: "soft",
-//     cornOrFlower: "flower",
-//     heatPreference: 5,
-//     streetOrGourmet: "street",
-//     favTaco: "chicken",
-//     favTacoLocation: "Los Cuscos",
-//     bestTacoMemory: "homemade tacos",
-//     instaHandle: "Instagram goes here",
-//     twitterHandle: "twitter goes here",
-//     facebookPage: "facebook page goes here",
-//     website: "espn.com"
-//   }
+  const log1 = {
+    date: 1999-12-31,
+                tacoName: "bat taco",
+                tacoLogPhoto: "http://unsplash.it/150/150",
+                restaurantName: "La Grange",
+                address: "678 West Green Street",
+                rating: 3,
+                userExperience: "Superb",
+                notes: "Every day is taco ipsum tuesday. It's taco Tuesday Monday. Yeah, apparently the taco shack was robbed. They left the money but took the tacos. TACOS!! How bout a gosh darn quesadilla? Burritos are very tasty. Tacos, tacos, tacos. Tacos, tacos, tacos.",
+                reviewedAt: Date.now()
+  }
+  const log2 = {
+    date: 1999-12-31,
+                tacoName: "fish taco",
+                tacoLogPhoto: "http://unsplash.it/150/150",
+                restaurantName: "Del Taco",
+                address: "679 West Green Street",
+                rating: 3,
+                userExperience: "Superb",
+                notes: "Every day is taco ipsum tuesday. It's taco Tuesday Monday. Yeah, apparently the taco shack was robbed. They left the money but took the tacos. TACOS!! How bout a gosh darn quesadilla? Burritos are very tasty. Tacos, tacos, tacos. Tacos, tacos, tacos.",
+                reviewedAt: Date.now()
+  }
+  const log3 = {
+    date: 1999-12-31,
+                tacoName: "foot taco",
+                tacoLogPhoto: "http://unsplash.it/150/150",
+                restaurantName: "Taco Bell",
+                address: "688 West Green Street",
+                rating: 3,
+                userExperience: "Superb",
+                notes: "Every day is taco ipsum tuesday. It's taco Tuesday Monday. Yeah, apparently the taco shack was robbed. They left the money but took the tacos. TACOS!! How bout a gosh darn quesadilla? Burritos are very tasty. Tacos, tacos, tacos. Tacos, tacos, tacos.",
+                reviewedAt: Date.now()
+  }
 
-  module.exports = {user1, user2, user3} 
+  module.exports = {user1, user2, user3, log1, log2, log3} 

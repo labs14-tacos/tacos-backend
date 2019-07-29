@@ -4,7 +4,9 @@ module.exports = {
   add,
   find,
   findById,
-  findUserTacosById
+  update,
+  findUserTacosById,
+  remove
 
 }
 
@@ -26,10 +28,22 @@ function findById(id) {
     .first();
 }
 
+function update(id, changes) {
+  return db('TacoLog')
+  .where('id', id)
+  .update(changes);
+}
+
 // Finds all tacologs by UserID
 function findUserTacosById(userId) {
   return db('TacoLog')
     .where({
       userId: userId
     })
+}
+
+async function remove(id) {
+  return db('Users')
+  .where({id})
+  .del();
 }
