@@ -4,13 +4,14 @@ module.exports = {
   add,
   find,
   findById,
-  findUserTacosById
+  findUserTacosById,
+  remove
 
 }
 
 async function add(tacolog) {
   const [id] = await db('TacoLog')
-    .insert(tacolog, 'id')
+    .insert(tacolog)
   return findById(id)
 }
 
@@ -33,3 +34,9 @@ function findUserTacosById(userId) {
       userId: userId
     })
 }
+
+async function remove(id){
+  return db('TacoLog')
+  .where({id})
+  .del()
+} 
