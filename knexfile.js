@@ -34,6 +34,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
+    ssl: true,
     connection: {
       database: 'my_db',
       user:     'username',

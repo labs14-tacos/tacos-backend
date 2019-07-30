@@ -1,6 +1,6 @@
 
 exports.seed = function (knex, Promise) {
-  return knex('tacoLog').insert([
+  return knex('TacoLog').insert([
     {
       "id": 1,
       "userId": 1,
