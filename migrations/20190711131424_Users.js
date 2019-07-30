@@ -34,7 +34,7 @@ exports.up = function(knex) {
       .text('hardOrSoft')
 
     tbl
-      .text('cornOrFlower')
+      .text('cornOrFlour')
 
     tbl
       .integer('heatPreference')
