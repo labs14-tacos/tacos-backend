@@ -59,8 +59,9 @@ const user1 = {
     website: "espn.com"
   }
   const log1 = {
-    date: 1999-12-31,
+    
                 tacoName: "bat taco",
+                date: 1999-12-31,
                 tacoLogPhoto: "http://unsplash.it/150/150",
                 restaurantName: "La Grange",
                 address: "678 West Green Street",
@@ -70,8 +71,9 @@ const user1 = {
                 reviewedAt: Date.now()
   }
   const log2 = {
-    date: 1999-12-31,
+    
                 tacoName: "fish taco",
+                date: 1999-12-31,
                 tacoLogPhoto: "http://unsplash.it/150/150",
                 restaurantName: "Del Taco",
                 address: "679 West Green Street",
@@ -81,8 +83,9 @@ const user1 = {
                 reviewedAt: Date.now()
   }
   const log3 = {
-    date: 1999-12-31,
+    
                 tacoName: "foot taco",
+                date: 1999-12-31,
                 tacoLogPhoto: "http://unsplash.it/150/150",
                 restaurantName: "Taco Bell",
                 address: "688 West Green Street",

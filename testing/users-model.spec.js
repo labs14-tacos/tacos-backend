@@ -49,8 +49,10 @@ describe("Users Model", () => {
 
         // passing two new users, then the second one will be deleted
         it('should delete a User', async () => {
-            await Users.add(user1)
+
+            const newUser = await Users.add(user1)
             await Users.add(user2)
+            const newUserId = (newUser.id)
 
         const newUser = await Users.add(user1)
         await Users.add(user2)

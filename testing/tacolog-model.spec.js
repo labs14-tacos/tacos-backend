@@ -48,11 +48,13 @@ describe("Users Model", () => {
 
         // passing two new users, then the second one will be deleted
         it('should return one TacoLog', async () => {
-            await TacoLog.add(log1)
-            await TacoLog.add(log2)
 
-        let delTacoLog = await TacoLog.remove(1)
-        expect(delTacoLog).toBe(1)
+            const newTacoLog = await TacoLog.add(log1)
+            const remainingTacoLog = await TacoLog.add(log2)
+            const newTacoLogId = (newTacoLog.id)
+      
+        await TacoLog.remove(newTacoLogId)
+        expect(remainingTacoLog.tacoName).toBe("fish taco")
         //  La Grange post confirmed in Insomnia
     })
   }) 
