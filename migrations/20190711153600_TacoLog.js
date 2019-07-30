@@ -28,7 +28,7 @@ exports.up = function(knex) {
     .text('notes')
 
   tbl
-    .date('date')
+    .timestamp('date').defaultTo(knex.fn.now())
 
   tbl
     .text('tacoName')
