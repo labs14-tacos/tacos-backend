@@ -8,7 +8,7 @@ const {user1, user2, user3} = require('./helper.js');
 
 beforeEach(async () => {
     await db('Users')
-    .truncate()
+    .del()
 })
 
 describe("Users Model", () => {
@@ -48,7 +48,7 @@ describe("Users Model", () => {
     describe("Delete a User by id", () => {
 
         // passing two new users, then the second one will be deleted
-        it('should return all Users', async () => {
+        it('should delete a User', async () => {
             await Users.add(user1)
             await Users.add(user2)
 

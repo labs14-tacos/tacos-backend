@@ -12,7 +12,7 @@ module.exports = {
 
 async function add(tacolog) {
   const [id] = await db('TacoLog')
-    .insert(tacolog, 'id')
+    .insert(tacolog)
   return findById(id)
 }
 
