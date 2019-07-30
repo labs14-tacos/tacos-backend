@@ -1,6 +1,6 @@
 
 exports.seed = function (knex, Promise) {
-  return knex('veggieIng').insert([
+  return knex('VeggieIng').insert([
     {
       "id": 1,
       "tacoId": 1,

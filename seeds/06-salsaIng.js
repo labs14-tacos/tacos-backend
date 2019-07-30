@@ -1,6 +1,6 @@
 
 exports.seed = function (knex, Promise) {
-  return knex('salsaIng').insert([
+  return knex('SalsaIng').insert([
     {
       "id": 1,
       "tacoId": 1,
