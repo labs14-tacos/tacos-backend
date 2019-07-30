@@ -4,7 +4,6 @@ exports.seed = function (knex, Promise) {
     {
       "id": 1,
       "userId": 1,
-      "date": 01022,
       "tacoName": "chicken taco",
       "tacoLogPhoto": "http://unsplash.it/150/150",
       "restaurantName": "Albertos",
@@ -13,12 +12,10 @@ exports.seed = function (knex, Promise) {
       "userExperience": "Great",
       "notes": "Every day is taco ipsum tuesday. It’s taco Tuesday Monday. Yeah, apparently the taco shack was robbed. They left the money but took the tacos. TACOS!! How bout a gosh darn quesadilla? Burritos are very tasty. Tacos, tacos, tacos. Tacos, tacos, tacos. Carne asada on corn tortillas. It’s raining tacos, from out of the sky, tacos, don’t even ask why. Tacos al pastor made with adobada meat. Tacos, tacos, tacos. I’ve been following that taco truck around all day.",
       "reviewedAt": 9999-12-31
-
     },
     {
       "id": 2,
       "userId": 2,
-      "date": 01232,
       "tacoName": "beef taco",
       "tacoLogPhoto": "http://unsplash.it/150/151",
       "restaurantName": "del taco",
@@ -31,7 +28,6 @@ exports.seed = function (knex, Promise) {
     {
       "id": 3,
       "userId": 3,
-      "date": 02212,
       "tacoName": "fish taco",
       "tacoLogPhoto": "http://unsplash.it/150/152",
       "restaurantName": "taco bell",
