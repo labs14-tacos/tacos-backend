@@ -49,11 +49,13 @@ describe("Users Model", () => {
 
         // passing two new users, then the second one will be deleted
         it('should delete a User', async () => {
-            await Users.add(user1)
-            await Users.add(user2)
 
-        let delUser = await Users.removeUser(1)
-        expect(delUser).toBe(1)
+            const newUser = await Users.add(user1)
+            await Users.add(user2)
+            const newUserId = (newUser.id)
+
+            let delUser = await Users.removeUser(newUserId)
+            expect(delUser).toBe(1)
         // David Lee Roth post confirmed in Insomnia
     })
   }) 
