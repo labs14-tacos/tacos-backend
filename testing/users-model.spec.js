@@ -52,7 +52,11 @@ describe("Users Model", () => {
             await Users.add(user1)
             await Users.add(user2)
 
-        let delUser = await Users.removeUser(1)
+        const newUser = await Users.add(user1)
+        await Users.add(user2)
+        const newUserId = (newUser.Id)
+
+        let delUser = await Users.removeUser(newUserId)
         expect(delUser).toBe(1)
         // David Lee Roth post confirmed in Insomnia
     })
