@@ -8,7 +8,7 @@ const {user1, user2, user3} = require('./helper.js');
 
 beforeEach(async () => {
     await db('Users')
-    .truncate()
+    .del()
 })
 
 describe("Users Model", () => {
@@ -48,12 +48,14 @@ describe("Users Model", () => {
     describe("Delete a User by id", () => {
 
         // passing two new users, then the second one will be deleted
-        it('should return all Users', async () => {
-            await Users.add(user1)
-            await Users.add(user2)
+        it('should delete a User', async () => {
 
-        let delUser = await Users.removeUser(1)
-        expect(delUser).toBe(1)
+            const newUser = await Users.add(user1)
+            await Users.add(user2)
+            const newUserId = (newUser.id)
+
+            let delUser = await Users.removeUser(newUserId)
+            expect(delUser).toBe(1)
         // David Lee Roth post confirmed in Insomnia
     })
   }) 
