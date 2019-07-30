@@ -59,7 +59,7 @@ describe("Users Model", () => {
 
   describe("Find tacolog by id", () => {
     // passing three new users, then the second one will be the target id
-    it('should return all users', async () => {
+    it('should return all tacologs', async () => {
       await TacoLog.add(log1)
       const targetTacoLog = await TacoLog.add(log2)
       await TacoLog.add(log3)
