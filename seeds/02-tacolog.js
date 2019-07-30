@@ -12,7 +12,6 @@ exports.seed = function (knex, Promise) {
       "userExperience": "Great",
       "notes": "Every day is taco ipsum tuesday. It’s taco Tuesday Monday. Yeah, apparently the taco shack was robbed. They left the money but took the tacos. TACOS!! How bout a gosh darn quesadilla? Burritos are very tasty. Tacos, tacos, tacos. Tacos, tacos, tacos. Carne asada on corn tortillas. It’s raining tacos, from out of the sky, tacos, don’t even ask why. Tacos al pastor made with adobada meat. Tacos, tacos, tacos. I’ve been following that taco truck around all day.",
       "reviewedAt": 9999-12-31
-
     },
     {
       "id": 2,
