@@ -57,13 +57,17 @@ describe('POST/users', () => {
 
         it('should return error 404', async () => {
             await db("users")
-            // .insert(userTest3);
+            // .insert(userTest4);
             return request(server)
             .get('/api/users/55')
             .then(res => {
-                console.log(res.body)
+                // console.log(res.body)
                 expect(res.status).toEqual(404)
             })
+        })
+
+        it('should reutrn a 200 status code', async () => {
+            
         })
 
     })

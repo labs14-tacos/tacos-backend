@@ -40,7 +40,7 @@ router.get('/', async(req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const test = await Users.findById(req.params.id)
-    if(test.length == 0){
+    if(!test){
       res.status(404).json({
         message: "The ID could not be found"
       })
