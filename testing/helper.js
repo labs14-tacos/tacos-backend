@@ -95,4 +95,4 @@ const user1 = {
                 reviewedAt: Date.now()
   }
 
-  module.exports = {user1, user2, user3, log1, log2, log3} 
+  module.exports = {user1, user2, user3, user4, log1, log2, log3} 

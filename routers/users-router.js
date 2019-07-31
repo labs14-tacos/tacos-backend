@@ -61,7 +61,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     const user = req.body;
     if(!user.firstName || !user.lastName || !user.email) {
-      return res.status(404).json({
+      return res.status(422).json({
       message: "Make sure to fillout all of input fields"
     })
   } else {
@@ -69,8 +69,8 @@ router.post('/', async (req, res) => {
       const newUser = req.body;
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
-    } catch (error) {
-      res.status(500).json(error)
+    } catch ({message}) {
+      res.status(500).json({message})
     }
   }
 })
