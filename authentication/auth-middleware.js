@@ -1,6 +1,7 @@
 const admin = require('./firebaseAdmin.js');
 
 
+// DECODE BODY MIDDLEWARE
 // This is the middleware that checks whether the token sent on the body of the request (first request in the app when someone logs in) is valid.
 function decodeBody(req, res, next) {
   const { token } = req.body;
@@ -14,7 +15,6 @@ function decodeBody(req, res, next) {
           email: decodedToken.email,
           firebaseId: decodedToken.uid
         };
-
         next();
       })
       .catch(err => {
@@ -27,6 +27,7 @@ function decodeBody(req, res, next) {
   }
 }
 
+// DECODE HEADER MIDDLEWARE
 // This is the middleware that checks whether the token sent on the header of the request from the front end is valid.
 function decodeHeader(req, res, next) {
   const { token } = req.headers;
