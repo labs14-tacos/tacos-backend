@@ -38,7 +38,7 @@ function decodeHeader(req, res, next) {
       .then(decodedToken => {
         req.headers.user = {
           email: decodedToken.email,
-          firebase_uuid: decodedToken.uid
+          firebaseId: decodedToken.uid
         };
 
         next();
