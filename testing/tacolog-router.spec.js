@@ -1,31 +1,28 @@
 const request = require('supertest')
 const server = require('../api/server')
-
-const {user3} = require('./helper')
-const {userTest1, userTest2, userTest3} = require('./helper2')
-
+const {tacolog1, tacolog2, tacolog3} = require('./helperTaco')
 
 describe('GET /', () => {
 
-    it('responds with 200 code, list of all users', function (done) {
+    it('responds with 200 code, list of all tacologs', function (done) {
         request(server)
-          .get("/api/users")
+          .get("/tacolog")
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect(200).end(done)
     })
 
-    it('responds with a 200 code, gets user by ID', function (done) {
+    it('responds with a 200 code, gets tocalog by ID', function (done) {
         request(server)
-         .get("/api/users/2")
+         .get("/tacolog/2")
          .set('Accept', 'application/json')
          .expect('Content-Type', /json/)
          .expect(200).end(done)
     })
 
-    it('responds with a 404 code, user ID not found', function(done) {
+    it('responds with a 404 code, tacolog ID not found', function(done) {
         request(server)
-         .get("/api/users/278")
+         .get("/tacolog/278")
          .set('Accept', 'application/json')
          .expect('Content-Type', /json/)
          .expect(404).end(done)
@@ -37,8 +34,8 @@ describe('POST /', () => {
 
     it('responds with a 201 code, user created', function(done) {
         request(server)
-          .post('/api/users')
-          .send(user3)
+          .post('/tacolog')
+          .send(tacolog2)
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect(201)
@@ -50,8 +47,8 @@ describe('POST /', () => {
 
     it('responds with 404 code, user not created', function(done) {
         request(server)
-        .post('/api/users')
-          .send(userTest1)
+        .post('/tacolog')
+          .send(tacolog1)
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect(404)
@@ -66,8 +63,8 @@ describe('PUT /', () => {
    
     it('responds with a 200 code, update successful', function(done) {
         request(server)
-           .put('/api/users/3')
-           .send(userTest3)
+           .put('/tacolog/3')
+           .send(tacolog3)
            .set('Accept', 'application/json')
            .expect('Content-Type', /json/)
            .expect(200)
@@ -79,8 +76,8 @@ describe('PUT /', () => {
 
      it('responds with a 404 code, ID does not exist', function(done) {
         request(server)
-           .put('/api/users/175')
-           .send(userTest3)
+           .put('/tacolog/175')
+           .send(tacolog2)
            .set('Accept', 'application/json')
            .expect('Content-Type', /json/)
            .expect(404)
@@ -92,8 +89,8 @@ describe('PUT /', () => {
 
      it('responds with a 400 code, not all fields submitted', function(done) {
         request(server)
-           .put('/api/users/2')
-           .send(userTest1)
+           .put('/tacolog/1')
+           .send(tacolog1)
            .set('Accept', 'application/json')
            .expect('Content-Type', /json/)
            .expect(400)
@@ -108,7 +105,7 @@ describe('DELETE /', () => {
 
     it('responds with a 200 code, delete succesful', function(done) {
         request(server)
-           .del('/api/users/1')
+           .del('/tacolog/13')
            .set('Accept', 'application/json')
            .expect('Content-Type', /json/)
            .expect(200)
@@ -120,7 +117,7 @@ describe('DELETE /', () => {
 
     it('responds with a 404 code, ID not found', function(done) {
         request(server)
-           .del('/api/users/134')
+           .del('/tacolog/134')
            .set('Accept', 'application/json')
            .expect('Content-Type', /json/)
            .expect(404)
@@ -129,4 +126,4 @@ describe('DELETE /', () => {
               done();
           })
      })
-})
+})  

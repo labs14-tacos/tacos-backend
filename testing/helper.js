@@ -7,7 +7,7 @@ const user1 = {
     zipCode: 92392,
     tacosPerMonth: 5,
     hardOrSoft: "soft",
-    cornOrFlower: "flower",
+    cornOrFlour: "flour",
     heatPreference: 5,
     streetOrGourmet: "street",
     favTaco: "chicken",
@@ -27,7 +27,7 @@ const user1 = {
     zipCode: 92392,
     tacosPerMonth: 5,
     hardOrSoft: "soft",
-    cornOrFlower: "flower",
+    cornOrFlour: "flour",
     heatPreference: 5,
     streetOrGourmet: "street",
     favTaco: "chicken",
@@ -47,7 +47,7 @@ const user1 = {
     zipCode: 92392,
     tacosPerMonth: 5,
     hardOrSoft: "soft",
-    cornOrFlower: "flower",
+    cornOrFlour: "flour",
     heatPreference: 5,
     streetOrGourmet: "street",
     favTaco: "chicken",
@@ -95,4 +95,4 @@ const user1 = {
                 reviewedAt: Date.now()
   }
 
-  module.exports = {user1, user2, user3, user4, log1, log2, log3} 
+  module.exports = {user1, user2, user3, log1, log2, log3} 

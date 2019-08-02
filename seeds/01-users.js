@@ -2,7 +2,7 @@ exports.seed = function (knex, Promise) {
   return knex('Users').insert([
     {
       "id": 1,
-      "firebaseId": "ThisIsAFakeFirebaseId",
+      "firebaseId": "ThisIsAFakeFirebaseId1",
       "firstName": "Jamie",
       "lastName": "Jamison",
       "email": "jamietheman@hotmail.com",
@@ -23,7 +23,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       "id": 2,
-      "firebaseId": "ThisIsAlsoAFakeFirebaseId",
+      "firebaseId": "ThisIsAlsoAFakeFirebaseId2",
       "firstName": "Samantha",
       "lastName": "Sampson",
       "email": "samsam@ymail.com",
@@ -44,7 +44,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       "id": 3,
-      "firebaseId": "ThisIsAnotherAFakeFirebaseId",
+      "firebaseId": "ThisIsAnotherAFakeFirebaseId3",
       "firstName": "Robby",
       "lastName": "Robertson",
       "email": "computers@computers.com",
