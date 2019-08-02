@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 // This is what connects our backend to our Frontend.
 
 const serviceAccount = {
-    // This is all of the info from the service account json object
+    // This is all of the info from the service account json object -- it is abstracted out into the env.
  type: "service_account",
  project_id: process.env.FB_PROJECT_ID,
  private_key_id: process.env.FB_PRIVATE_KEY_ID,
