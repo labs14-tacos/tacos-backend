@@ -17,7 +17,7 @@ router.get('/', async(req, res) => {
       res
         .status(500)
         .json({
-          message: 'There was an error retrieving these users.'
+          message: 'There was an error retrieving these taco logs.'
         });
     }
   });
@@ -34,7 +34,7 @@ router.get('/', async(req, res) => {
       res
         .status(500)
         .json({
-          message: 'There was an error retrieving these users.'
+          message: 'There was an error retrieving this taco log.'
         });
     }
   });
