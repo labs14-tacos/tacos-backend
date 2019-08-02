@@ -18,7 +18,7 @@ server.use(helmet());
 server.use(logger);
 
 server.use('/api/users', decodeHeader, usersRouter);
-server.use('/tacolog', tacoLogRouter);
+server.use('/tacolog', decodeHeader, tacoLogRouter);
 
 // Sanity check 
 server.get('/', (req, res) => {
