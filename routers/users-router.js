@@ -19,27 +19,12 @@ router.get('/', async(req, res) => {
   }
 });
 
-// FindByID  CAN REMOVE THIS
-// router.get('/:id', async(req, res) => {
-//   try {
-//     const users = await Users.findById(req.params.id);
-//     res
-//       .status(200)
-//       .json(users);
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({
-//         message: 'There was an error retrieving these users.'
-//       });
-//   }
-// });
 
 // Find By Id
 router.get('/:id', async (req, res) => {
   try {
     const test = await Users.findById(req.params.id)
-    if(test.length == 0){
+    if(!test){
       res.status(404).json({
         message: "The ID could not be found"
       })
@@ -54,7 +39,7 @@ router.get('/:id', async (req, res) => {
 })
 
 
-// POST REQUEST
+// // POST REQUEST
 
 // POST New User
 router.post('/', async (req, res) => {
@@ -80,14 +65,22 @@ router.put('/:id', async (req, res) => {
   try {
 
     const id = req.params.id 
-    const test = await Users.update(id, req.body)
+    const{firstName, lastName, email, firebaseId} = req.body
+  
+    // const test = await Users.find(id, req.body)
+    const findId = await Users.findById(id)
 
-   if (!id){
-      res.status(404).json({
-        message: "The ID could not be found"
+   if (!firstName || !lastName || !email || !firebaseId){
+      res.status(400).json({
+        message: "All fields not completed"
       })
+    } else if(!findId) {
+       res.status(404).json({
+         message: "ID could not be found"
+       })
     } else {
-      res.status(200).json(test)
+      const test2 = await Users.update(id, req.body)
+      res.status(200).json(test2)
     }
   } catch (error) {
     res.status(500).json({
@@ -96,25 +89,25 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-// DELETE User
-router.delete('/:id', async (req, res) => {
-  try {
-    
-    const test = await Users.removeUser(req.params.id)
+// // DELETE User
 
-   if (test > 0){
-     res.status(204).end();
-   } else {
-     res.status(404).json({
-       message: "User deleted"
+router.delete('/:id', async (req, res) => {
+   try {
+     const id = req.params.id 
+     const test = await Users.findById(id)
+     if(!test) {
+       res.status(404).json({
+         message: "There is no ID by that number"
+       })
+     } else {
+       const test2 = await Users.removeUser(id)
+       res.status(200).json(test2)
+     }
+   } catch (error) {
+     res.status(500).json({
+       message: "There was a server error"
      })
    }
-
-  } catch (error) {
-    res.status(500).json({
-      message: "There was a server error"
-    })
-  }
 })
 
-module.exports = router;
+module.exports = router;   

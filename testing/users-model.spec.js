@@ -1,8 +1,5 @@
-
 const db = require('../data/dbConfig');
-
 const Users = require('../data/models/users-model');
-
 const {user1, user2, user3} = require('./helper.js');
 
 
@@ -13,6 +10,19 @@ beforeEach(async () => {
 
 describe("Users Model", () => {
   
+    
+    describe("Find all Users", () => {
+        // passing two new users
+        it('should return all Users', async () => {
+            await Users.add(user1)
+            await Users.add(user2)
+
+            let allUsers = await Users.find()
+            expect(allUsers).toHaveLength(2)
+            // David Lee Roth and Edward Van Halen posts confirmed in Insomnia
+        })
+    }) 
+
     describe("Add a new user", () => {
 
         // checks to confirm there are no users
@@ -32,18 +42,7 @@ describe("Users Model", () => {
         })
     })
 
-    describe("Find all Users", () => {
 
-        // passing two new users
-        it('should return all Users', async () => {
-            await Users.add(user1)
-            await Users.add(user2)
-
-            let allUsers = await Users.find()
-            expect(allUsers).toHaveLength(2)
-            // David Lee Roth and Edward Van Halen posts confirmed in Insomnia
-        })
-    }) 
 
     describe("Delete a User by id", () => {
 
@@ -82,5 +81,5 @@ describe("Update a user by id", () => {
       const updatedUser = await Users.findById(newUser.id)
       expect(updatedUser.firstName).toBe("Bob")
   })
- })  
+})
 })
