@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
 // POST New User
 router.post('/', async (req, res) => {
     const user = req.body;
-    if(!user.firstName || !user.lastName || !user.email) {
+    if(!user.email) {
       return res.status(404).json({
       message: "Make sure to fillout all of input fields"
     })

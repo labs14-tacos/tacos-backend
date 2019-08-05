@@ -9,11 +9,11 @@ exports.up = function(knex) {
 
     tbl
       .string('firstName', 255)
-      .notNullable()
+   
 
     tbl
       .string('lastName', 255)
-      .notNullable()
+      
 
     tbl
       .string('email', 255)
@@ -25,7 +25,7 @@ exports.up = function(knex) {
 
     tbl
       .integer('zipCode')
-      .notNullable()
+     
 
     tbl
       .integer('tacosPerMonth')
@@ -69,3 +69,5 @@ exports.up = function(knex) {
 exports.down = function(knex, Promise) {
   return knex.schema.dropTableIfExists('Users');
 };
+
+// only the firebaseId and email fields are not-nullable because they are created when the firebase user object is created.

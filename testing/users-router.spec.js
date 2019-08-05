@@ -106,7 +106,7 @@ describe('PUT /', () => {
 
 describe('DELETE /', () => {
 
-    it('responds with a 200 code, delete succesful', function(done) {
+    it('responds with a 200 code, delete successful', function(done) {
         request(server)
            .del('/api/users/1')
            .set('Accept', 'application/json')
