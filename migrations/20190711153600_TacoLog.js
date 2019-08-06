@@ -39,9 +39,16 @@ exports.up = function(knex) {
   tbl
     .text('userExperience')
 
+  tbl
+    .json('ingredients') // this is a JSON object with the ingredient types with an array for each ingredient key -- for example { cheese: ["Cheddar", "Pepperjack"], vegetables: ["bell peppers", "tomatoes", "onions"]} 
+
+  tbl
+    .json('ratings') // this is for storing a JSON object with the 5 separate ratings on it like: { "t": 5, "a": 4.5, "c": 4, "o": 4.5, "total": 4.5} 
 
   tbl
     .timestamp('reviewedAt').defaultTo(knex.fn.now())
+
+
   })
 };
 

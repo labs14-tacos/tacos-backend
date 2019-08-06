@@ -12,7 +12,7 @@ module.exports = {
 
 async function add(tacolog) {
   const [id] = await db('TacoLog')
-    .insert(tacolog)
+    .insert(tacolog).returning('id') // this guarantees that it will work with postgres
   return findById(id)
 }
 

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const admin = require('firebase-admin');
 // This file is what connects our backend to our Frontend.
 
