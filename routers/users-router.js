@@ -41,10 +41,10 @@ router.get('/:id', async (req, res) => {
 
 // // POST REQUEST
 
-// POST New User
+// POST New User (register)
 router.post('/', async (req, res) => {
     const user = req.body;
-    if(!user.firstName || !user.lastName || !user.email) {
+    if(!user.email) {
       return res.status(404).json({
       message: "Make sure to fillout all of input fields"
     })
@@ -70,7 +70,7 @@ router.put('/:id', async (req, res) => {
     // const test = await Users.find(id, req.body)
     const findId = await Users.findById(id)
 
-   if (!firstName || !lastName || !email || !firebaseId){
+   if (!email || !firebaseId){
       res.status(400).json({
         message: "All fields not completed"
       })

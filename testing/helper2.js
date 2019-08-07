@@ -2,7 +2,6 @@ const userTest1 = {
     firebaseId: "ThisIsAFakeFirebaseId0",
     id: "5",
     lastName: "Jamison",
-    email: "jamiet@hotmail.com",
     userPhoto: "http://unsplash.it/100/100",
     zipCode: 92392,
     tacosPerMonth: 5,

@@ -35,17 +35,28 @@ router.get('/', async(req, res) => {
         res.status(200).json(test)
       }
     } catch (error) {
-<<<<<<< HEAD
       res.status(500).json({
         message: "There was a server error"
       })
-=======
-      res
-        .status(500)
-        .json({
-          message: 'There was an error retrieving this taco log.'
-        });
->>>>>>> 3899adc885a9c1700bf8e6ec977099a1e63693f9
+    }
+  })
+
+
+// GET Tacologs by User Id 
+  router.get('/user/:userId', async (req, res) => {
+    try {
+      const test = await TacoLogs.findUserTacosById(req.params.userId)
+      if(!test){
+        res.status(404).json({
+          message: "No taco logs belonging to this user could not be found"
+        })
+      } else {
+        res.status(200).json({ })
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: "There was a server error"
+      })
     }
   })
 
@@ -55,14 +66,20 @@ router.get('/', async(req, res) => {
 // POST a new TacoLog
 router.post('/', async (req, res) => {
   const tacolog = req.body;
+  const ingredients = JSON.stringify(tacolog.ingredients);
+  const ratings = JSON.stringify(tacolog.ratings);
+  const tacologFormatted = {
+    ...tacolog, 
+    "ingredients": ingredients,
+    "ratings": ratings
+  }
   if(!tacolog.restaurantName || !tacolog.rating) {
     return res.status(404).json({
     message: "Make sure to fillout all of input fields"
   })
 } else {
   try {
-    const tacolog = req.body;
-    const newTacoLog = await TacoLogs.add(tacolog)
+    const newTacoLog = await TacoLogs.add(tacologFormatted)
     res.status(201).json(newTacoLog)
   } catch (error) {
     res.status(500).json(error)
@@ -94,7 +111,7 @@ router.put('/:id', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: "There was a server error"
+      message: `There was a server error: ${error}`
     })
   }
 })

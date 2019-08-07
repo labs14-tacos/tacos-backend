@@ -34,24 +34,34 @@ To get the server running locally:
 
 🚫This is a placeholder, replace the endpoints, access controll, and descriptioin to match your project
 
-#### Organization Routes
+#### Auth Routes
 
 | Method | Endpoint                | Access Control | Description                                  |
 | ------ | ----------------------- | -------------- | -------------------------------------------- |
-| GET    | `/organizations/:orgId` | all users      | Returns the information for an organization. |
-| PUT    | `/organizatoins/:orgId` | owners         | Modify an existing organization.             |
-| DELETE | `/organizations/:orgId` | owners         | Delete an organization.                      |
+| POST    | `/api/auth/register` | all users      | If user signs in and isn't on the table, this adds them. |
+| POST   | `/api/auth/login` | all users         | If user signs in and is on the table, this sends back their info |
+
 
 #### User Routes
 
 | Method | Endpoint                | Access Control      | Description                                        |
 | ------ | ----------------------- | ------------------- | -------------------------------------------------- |
-| GET    | `/users/current`        | all users           | Returns info for the logged in user.               |
-| GET    | `/users/org/:userId`    | owners, supervisors | Returns all users for an organization.             |
-| GET    | `/users/:userId`        | owners, supervisors | Returns info for a single user.                    |
-| POST   | `/users/register/owner` | none                | Creates a new user as owner of a new organization. |
-| PUT    | `/users/:userId`        | owners, supervisors |                                                    |
-| DELETE | `/users/:userId`        | owners, supervisors |                                                    |
+| GET    | `/api/users`        ````| all users           | Returns info for all users.               |
+| GET    | `/api/users/:id`    | all users | Returns info for a single user.           |
+| POST  | `/api/users`        | all users | Adds a new user                   |
+| PUT   | `/api/users/:id` | all users                | Updates a user's info. |
+| DELETE | `api/users/:id`        | all users |          deletes a user                                          |
+
+#### TacoLog Routes
+
+| Method | Endpoint                | Access Control | Description                                  |
+| ------ | ----------------------- | -------------- | -------------------------------------------- |
+| GET    | `/tacolog/` | all users      | Returns all tacologs. |
+| GET    | `/tacolog/:id` | all users         | Returns a tacolog by its tacolog id.             |
+| GET | `/tacolog/user/:userId` | all users          | Returns all tacologs created by a user by user id.                     |
+| POST | `/tacolog` | all users          | Adds a new tacolog.                     |
+| PUT | `/tacolog/:id` | all users       | Update a tacolog by tacolog id.                     |
+| DELETE | `/tacolog/:id` | all users        | Delete a tacolog by tacolog id.                    |
 
 # Data Model
 
