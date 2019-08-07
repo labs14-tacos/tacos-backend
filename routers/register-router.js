@@ -23,25 +23,25 @@ const router = express.Router();
 // }
 // })
 
-//  router.post('/register', async (req, res) => {
-//   const { user } = req.body;
-//   try {
-//     const addNewUser = await db.add(user);
-//     console.log('from addNewUser', addNewUser);
-//     res.status(201).json({
-//       message: `user was successfully added to database.`,
-//       addNewUser, // returns the user that is on SQL table
-//     });
-//   } catch (err) {
-
-//     res.status(500).json({ message: `There was an error: ${err}`});
-//   }
-// });
-
- router.post('/login', (req, res) => {
+ router.post('/register', async (req, res) => {
   const { user } = req.body;
+  try {
+    const addNewUser = await db.add(user);
+    console.log('from addNewUser', addNewUser);
+    res.status(201).json({
+      message: `user was successfully added to database.`,
+      addNewUser, // returns the user that is on SQL table
+    });
+  } catch (err) {
+
+    res.status(500).json({ message: `There was an error: ${err}`});
+  }
+});
+
+ router.post('/login', async (req, res) => {
+  const user = req.body.user;
    try {
-    const loggedInUser = db.getUserByFirebaseID(user.firebaseId);
+    const loggedInUser = await db.getUserByFirebaseID(user.firebaseId);
     if (!loggedInUser) {
      res.status(404).json({message: 'User is not on our table'})
     }
