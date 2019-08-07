@@ -20,7 +20,7 @@ server.use(logger);
 
 server.use('/api/users', decodeHeader, usersRouter);
 server.use('/tacolog', decodeHeader, tacoLogRouter);
-server.use('/auth', decodeBody, registerRouter);
+server.use('/api/auth', decodeBody, registerRouter);
 
 // Sanity check 
 server.get('/', (req, res) => {

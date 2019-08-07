@@ -42,6 +42,25 @@ router.get('/', async(req, res) => {
   })
 
 
+// GET Tacologs by User Id 
+  router.get('/user/:userId', async (req, res) => {
+    try {
+      const test = await TacoLogs.findUserTacosById(req.params.userId)
+      if(!test){
+        res.status(404).json({
+          message: "No taco logs belonging to this user could not be found"
+        })
+      } else {
+        res.status(200).json(test)
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: "There was a server error"
+      })
+    }
+  })
+
+
 // // POST REQUEST
 
 // POST a new TacoLog
@@ -86,7 +105,7 @@ router.put('/:id', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: "There was a server error"
+      message: `There was a server error: ${error}`
     })
   }
 })

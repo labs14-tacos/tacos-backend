@@ -6,7 +6,7 @@ module.exports = {
   findById,
   update,
   removeUser, 
-  getUserIDByFirebaseID
+  getUserByFirebaseID
 }
 
 async function add(user) {
@@ -39,11 +39,10 @@ async function removeUser(id) {
   .del();
 }
 
-function getUserIDByFirebaseID(firebaseId) {
+function getUserByFirebaseID(firebaseId) {
   return (
     db('users')
-      .where({ firebaseId: firebaseId })
-      // .select('id');
-      .first()
+      .where({firebaseId})
+      .select('id')
   );
 }
