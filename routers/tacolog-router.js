@@ -51,7 +51,7 @@ router.get('/', async(req, res) => {
           message: "No taco logs belonging to this user could not be found"
         })
       } else {
-        res.status(200).json(test)
+        res.status(200).json({ })
       }
     } catch (error) {
       res.status(500).json({
