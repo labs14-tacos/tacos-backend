@@ -85,11 +85,9 @@ router.get('/mytacolog', async (req, res) => {
 router.post('/', async (req, res) => {
   const tacolog = req.body;
   const ingredients = JSON.stringify(tacolog.ingredients);
-  const ratings = JSON.stringify(tacolog.ratings);
   const tacologFormatted = {
     ...tacolog, 
     "ingredients": ingredients,
-    "ratings": ratings
   }
   if(!tacolog.restaurantName || !tacolog.rating) {
     return res.status(404).json({
