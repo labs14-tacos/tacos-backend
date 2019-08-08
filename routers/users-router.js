@@ -47,25 +47,18 @@ router.get('/:id', decodeHeader, async (req, res) => {
 router.post('/', decodeHeader, async (req, res) => {
     const firebaseId = req.headers.user.firebaseId;
     const email = req.headers.user.email;
-    const {firstName, lastName, userPhoto, zipcode, tacosPerMonth, hardOrSoft, cornOrFlour, heatPreference, streetOrGourmet, favTaco, favTacoLocation, bestTacoMemory, instaHandle, twitterHandle, facebookPage} = req.body;
+    const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
     const newUser = {
       "firstName": firstName,
       "lastName": lastName,
       "userPhoto": userPhoto,
       "firebaseId": firebaseId,
       "email": email, 
-      "zipcode": zipcode, 
-      "tacosPerMonth": tacosPerMonth,
-      "hardOrSoft": hardOrSoft,
-      "cornOrFlour": cornOrFlour,
-      "heatPreference": heatPreference,
-      "streetOrGourmet": streetOrGourmet,
       "favTaco": favTaco,
-      "favTacoLocation": favTacoLocation,
-      "bestTacoMemory": bestTacoMemory,
       "instaHandle": instaHandle,
       "twitterHandle": twitterHandle,
-      "facebookPage": facebookPage}
+      "facebookPage": facebookPage, 
+      "website": website}
     try {
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
