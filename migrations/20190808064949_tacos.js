@@ -7,10 +7,10 @@ exports.up = function(knex) {
 
         tbl.integer('rating');
 
-        tbl.integer('tacologId')
+        tbl.integer('tacoLogId')
         .unsigned()
         .references('id')
-        .inTable('Tacolog')
+        .inTable('TacoLog')
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
 
