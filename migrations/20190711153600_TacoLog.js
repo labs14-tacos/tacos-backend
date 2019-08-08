@@ -31,9 +31,6 @@ exports.up = function(knex) {
     .timestamp('date').defaultTo(knex.fn.now())
 
   tbl
-    .text('userExperience')
-
-  tbl
     .json('ratings') // this is for storing a JSON object with the 5 separate ratings on it like: { "t": 5, "a": 4.5, "c": 4, "o": 4.5, "total": 4.5} 
 
   tbl

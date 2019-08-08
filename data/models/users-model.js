@@ -4,38 +4,47 @@ module.exports = {
   add,
   find,
   findById,
+  findByIntId,
   update,
   removeUser, 
   getUserByFirebaseID
 }
 
+// the firebaseId is used in lieu of the integer id in order to make Firebase Auth play nice with our SQL database.
+
 async function add(user) {
-  const [id] = await db('Users')
+  const [firebaseId] = await db('Users')
     .insert(user).returning('id') // this guarantees that it will work with postgres
-  return findById(id)
+  return findById(firebaseId)
 }
 
 function find() {
   return db('Users')
 }
 
-function findById(id) {
+function findById(firebaseId) {
   return db('Users')
     .where({
-      'id': id
+      'firebaseId': firebaseId
     })
     .first();
 }
 
-function update(id, changes) {
+function findByIntId(id) {
   return db('Users')
-  .where('id', id)
+    .where({ 'id': id})
+    .first();
+}
+
+function update(firebaseId, changes) {
+  return db('Users')
+  .where('firebaseId', firebaseId)
   .update(changes);
 }
 
-async function removeUser(id) {
+async function removeUser(firebaseId) {
   return db('Users')
-  .where({id})
+  .where({firebaseId})
   .del();
 }
 

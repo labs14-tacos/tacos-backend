@@ -41,11 +41,29 @@ router.get('/', async(req, res) => {
     }
   })
 
+// GET Tacologs by User who is Logged In 
 
-// GET Tacologs by User Id 
-  router.get('/user/:userId', async (req, res) => {
+router.get('/mytacolog', async (req, res) => {
+  try {
+    const test = await TacoLogs.findUserTacosById(req.params.userId)
+    if(!test){
+      res.status(404).json({
+        message: "No taco logs belonging to this user could not be found"
+      })
+    } else {
+      res.status(200).json({ })
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "There was a server error"
+    })
+  }
+})
+
+// GET Tacologs by User's Firebase Id 
+  router.get('/user/:firebaseId', async (req, res) => {
     try {
-      const test = await TacoLogs.findUserTacosById(req.params.userId)
+      const test = await TacoLogs.findUserTacosById(req.params.firebaseId)
       if(!test){
         res.status(404).json({
           message: "No taco logs belonging to this user could not be found"
@@ -136,5 +154,11 @@ router.delete('/:id', async (req, res) => {
     })
   }
 })
+
+
+// We also need the following routes:
+
+// one that gets all tacologs and associated tacos belonging to a user by their firebaseId (will need a join)
+// one that gets all tacos belonging to a tacolog and that tacolog (will need a join)
 
   module.exports = router;  

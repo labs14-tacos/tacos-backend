@@ -20,10 +20,10 @@ router.get('/', async(req, res) => {
 });
 
 
-// Find By Id
+// Find By Integer Id
 router.get('/:id', async (req, res) => {
   try {
-    const test = await Users.findById(req.params.id)
+    const test = await Users.findByIntId(req.params.id)
     if(!test){
       res.status(404).json({
         message: "The ID could not be found"
@@ -43,6 +43,7 @@ router.get('/:id', async (req, res) => {
 
 // POST New User (register)
 router.post('/', async (req, res) => {
+    const firebaseId = req.headers.user.firebaseId;
     const user = req.body;
     if(!user.email) {
       return res.status(404).json({
@@ -50,7 +51,7 @@ router.post('/', async (req, res) => {
     })
   } else {
     try {
-      const newUser = req.body;
+      const newUser = {...user, firebaseId}
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
     } catch (error) {
@@ -61,14 +62,15 @@ router.post('/', async (req, res) => {
 
 
 // UPDATE User
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
   try {
 
-    const id = req.params.id 
+    const firebaseId = req.headers.user.firebaseId;
+
     const{firstName, lastName, email, firebaseId} = req.body
   
     // const test = await Users.find(id, req.body)
-    const findId = await Users.findById(id)
+    const findId = await Users.findById(firebaseId)
 
    if (!email || !firebaseId){
       res.status(400).json({
@@ -79,7 +81,7 @@ router.put('/:id', async (req, res) => {
          message: "ID could not be found"
        })
     } else {
-      const test2 = await Users.update(id, req.body)
+      const test2 = await Users.update(firebaseId, req.body)
       res.status(200).json(test2)
     }
   } catch (error) {
@@ -91,16 +93,17 @@ router.put('/:id', async (req, res) => {
 
 // // DELETE User
 
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
    try {
-     const id = req.params.id 
-     const test = await Users.findById(id)
+    const firebaseId = req.headers.user.firebaseId;
+
+     const test = await Users.findById(firebaseId)
      if(!test) {
        res.status(404).json({
          message: "There is no ID by that number"
        })
      } else {
-       const test2 = await Users.removeUser(id)
+       const test2 = await Users.removeUser(firebaseId)
        res.status(200).json(test2)
      }
    } catch (error) {
