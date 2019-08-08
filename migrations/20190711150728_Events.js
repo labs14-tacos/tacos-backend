@@ -3,10 +3,11 @@ exports.up = function(knex) {
     tbl.increments()
 
     tbl
-      .integer('adminId')
-      .unsigned()
-      .references('id')
-      .inTable('Users');
+      .string('adminId')
+      .references('firebaseId')
+      .inTable('Users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
 
     tbl
       .string('locationName', 255);
