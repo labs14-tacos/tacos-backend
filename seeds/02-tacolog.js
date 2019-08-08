@@ -3,7 +3,7 @@ exports.seed = function (knex, Promise) {
   return knex('TacoLog').insert([
     {
       "id": 1,
-      "firebaseId": "1",
+      "firebaseId": "ThisIsAFakeFirebaseId1",
       // "restaurantId": 1,
       // "tacoName": "chicken taco",
       "tacoLogPhoto": "http://unsplash.it/150/150",
@@ -26,7 +26,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       "id": 2,
-      "firebaseId": "2",
+      "firebaseId": "ThisIsAFakeFirebaseId1",
       // "restaurantId": 1,
       // "tacoName": "chicken taco",
       "tacoLogPhoto": "http://unsplash.it/150/150",
@@ -49,7 +49,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       "id": 3,
-      "firebaseId": "3",
+      "firebaseId": "ThisIsAFakeFirebaseId1",
       // "restaurantId": 1,
       // "tacoName": "chicken taco",
       "tacoLogPhoto": "http://unsplash.it/150/150",
