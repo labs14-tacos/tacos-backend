@@ -23,33 +23,33 @@ exports.up = function(knex) {
     tbl
       .string('userPhoto');
 
-    tbl
-      .string('zipCode')
+    // tbl
+    //   .string('zipCode')
      
 
-    tbl
-      .integer('tacosPerMonth')
+    // tbl
+    //   .integer('tacosPerMonth')
 
-    tbl
-      .text('hardOrSoft')
+    // tbl
+    //   .text('hardOrSoft')
 
-    tbl
-      .text('cornOrFlour')
+    // tbl
+    //   .text('cornOrFlour')
 
-    tbl
-      .integer('heatPreference')
+    // tbl
+    //   .integer('heatPreference')
 
-    tbl
-      .text('streetOrGourmet')
+    // tbl
+    //   .text('streetOrGourmet')
 
     tbl
       .text('favTaco')
 
-    tbl
-      .text('favTacoLocation')
+    // tbl
+    //   .text('favTacoLocation')
 
-    tbl
-      .text('bestTacoMemory')
+    // tbl
+    //   .text('bestTacoMemory')
 
     tbl
       .text('instaHandle')
