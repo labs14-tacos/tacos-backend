@@ -7,7 +7,6 @@ const {decodeHeader, decodeBody} = require('../authentication/auth-middleware.js
 // Routers
 const usersRouter = require('../routers/users-router');
 const tacoLogRouter = require('../routers/tacolog-router');
-const registerRouter = require('../routers/register-router');
 
 //Server Invocation
 const server = express();
@@ -18,9 +17,9 @@ server.use(cors());
 server.use(helmet());
 server.use(logger);
 
-server.use('/api/users', decodeHeader, usersRouter);
-server.use('/tacolog', decodeHeader, tacoLogRouter);
-server.use('/api/auth', decodeBody, registerRouter);
+server.use('/api/users', usersRouter);
+server.use('/tacolog', tacoLogRouter);
+
 
 // Sanity check 
 server.get('/', (req, res) => {

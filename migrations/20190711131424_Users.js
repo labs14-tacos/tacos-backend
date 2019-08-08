@@ -24,7 +24,7 @@ exports.up = function(knex) {
       .string('userPhoto');
 
     tbl
-      .integer('zipCode')
+      .string('zipCode')
      
 
     tbl

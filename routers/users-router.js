@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Users = require('../data/models/users-model');
+const {decodeHeader} = require('../authentication/auth-middleware')
 
 // GET REQUESTS
 
-router.get('/', async(req, res) => {
+router.get('/', decodeHeader, async(req, res) => {
   try {
     const users = await Users.find();
     res
@@ -21,7 +22,7 @@ router.get('/', async(req, res) => {
 
 
 // Find By Integer Id
-router.get('/:id', async (req, res) => {
+router.get('/:id', decodeHeader, async (req, res) => {
   try {
     const test = await Users.findByIntId(req.params.id)
     if(!test){
@@ -42,32 +43,46 @@ router.get('/:id', async (req, res) => {
 // // POST REQUEST
 
 // POST New User (register)
-router.post('/', async (req, res) => {
+// this pulls the firebase ID and the email off the token and inserts it into the user table along with everything else
+router.post('/', decodeHeader, async (req, res) => {
     const firebaseId = req.headers.user.firebaseId;
-    const user = req.body;
-    if(!user.email) {
-      return res.status(404).json({
-      message: "Make sure to fillout all of input fields"
-    })
-  } else {
+    const email = req.headers.user.email;
+    const {firstName, lastName, userPhoto, zipcode, tacosPerMonth, hardOrSoft, cornOrFlour, heatPreference, streetOrGourmet, favTaco, favTacoLocation, bestTacoMemory, instaHandle, twitterHandle, facebookPage} = req.body;
+    const newUser = {
+      "firstName": firstName,
+      "lastName": lastName,
+      "userPhoto": userPhoto,
+      "firebaseId": firebaseId,
+      "email": email, 
+      "zipcode": zipcode, 
+      "tacosPerMonth": tacosPerMonth,
+      "hardOrSoft": hardOrSoft,
+      "cornOrFlour": cornOrFlour,
+      "heatPreference": heatPreference,
+      "streetOrGourmet": streetOrGourmet,
+      "favTaco": favTaco,
+      "favTacoLocation": favTacoLocation,
+      "bestTacoMemory": bestTacoMemory,
+      "instaHandle": instaHandle,
+      "twitterHandle": twitterHandle,
+      "facebookPage": facebookPage}
     try {
-      const newUser = {...user, firebaseId}
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
     } catch (error) {
       res.status(500).json(error)
     }
-  }
-})
+  })
+
 
 
 // UPDATE User
-router.put('/', async (req, res) => {
+router.put('/', decodeHeader, async (req, res) => {
   try {
 
     const firebaseId = req.headers.user.firebaseId;
 
-    const{firstName, lastName, email, firebaseId} = req.body
+    const{firstName, lastName, email} = req.body
   
     // const test = await Users.find(id, req.body)
     const findId = await Users.findById(firebaseId)
@@ -93,7 +108,7 @@ router.put('/', async (req, res) => {
 
 // // DELETE User
 
-router.delete('/', async (req, res) => {
+router.delete('/', decodeHeader, async (req, res) => {
    try {
     const firebaseId = req.headers.user.firebaseId;
 

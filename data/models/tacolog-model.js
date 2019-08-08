@@ -30,7 +30,7 @@ function findById(id) {
       id
     })
     .first();
-}
+} 
 
 // updates tacolog by id
 function update(id, changes) {

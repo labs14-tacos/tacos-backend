@@ -13,9 +13,9 @@ module.exports = {
 // the firebaseId is used in lieu of the integer id in order to make Firebase Auth play nice with our SQL database.
 
 async function add(user) {
-  const [firebaseId] = await db('Users')
+  const [id] = await db('Users')
     .insert(user).returning('id') // this guarantees that it will work with postgres
-  return findById(firebaseId)
+  return findByIntId(id);
 }
 
 function find() {
