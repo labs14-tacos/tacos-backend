@@ -70,6 +70,7 @@ router.post('/', decodeBody, async (req, res) => {
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
     } catch (error) {
+      console.log(error.message)
       res.status(500).json({error, message: error.message})
     }
      
