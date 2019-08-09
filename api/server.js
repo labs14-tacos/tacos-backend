@@ -19,10 +19,7 @@ const server = express();
 //Middleware 
 server.use(express.json());
 server.use(
-    cors({
-      credentials: true,
-      origin: 'http://localhost:3000/'
-    })
+    cors()
   );
 server.use(helmet());
 server.use(logger);
