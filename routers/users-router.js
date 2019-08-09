@@ -44,7 +44,7 @@ router.get('/:id', decodeHeader, async (req, res) => {
 
 // POST New User (register)
 // this pulls the firebase ID and the email off the token and inserts it into the user table along with everything else
-router.post('/', decodebody, async (req, res) => {
+router.post('/', decodeBody, async (req, res) => {
     const firebaseId = req.body.user.firebaseId;
     const email = req.body.user.email;
     const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
