@@ -9,7 +9,7 @@ const server = express();
 
 // CORS options 
 const corsOptions = {
-    origin: ["localhost:3000", "https://staging-time4tacos.netlify.com/", "https://time4tacos.com/"],
+    origin: ["*"],
     headers: ["Access-Control-Allow-Origin", "Access-Control-Allow-Headers"]
 }
 
