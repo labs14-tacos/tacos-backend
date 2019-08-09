@@ -48,6 +48,13 @@ router.post('/', decodeBody, async (req, res) => {
     const firebaseId = req.body.user.firebaseId;
     const email = req.body.user.email;
     const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
+    const singleUser = await Users.getUserByFirebaseID(firebaseId);
+    if (singleUser) {
+      console.log("singleUser", singleUser);
+      return res.send(singleUser)
+      
+    }
+    else {
     const newUser = {
       "firstName": firstName,
       "lastName": lastName,
@@ -65,6 +72,8 @@ router.post('/', decodeBody, async (req, res) => {
     } catch (error) {
       res.status(500).json({error, message: error.message})
     }
+     
+  }
   })
 
 
