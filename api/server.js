@@ -7,9 +7,16 @@ const {decodeHeader, decodeBody} = require('../authentication/auth-middleware.js
 //Server Invocation
 const server = express();
 
+// CORS options 
+const corsOptions = {
+    headers: ["Access-Control-Allow-Origin", "Access-Control-Allow-Headers"]
+}
+
+
+
 //Middleware 
 server.use(express.json());
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(helmet());
 server.use(logger);
 
