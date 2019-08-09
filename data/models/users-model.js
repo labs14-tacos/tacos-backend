@@ -49,7 +49,7 @@ async function removeUser(firebaseId) {
 }
 
 function getUserByFirebaseID(firebaseId) {
-  return db('users')
+  return db('Users')
       .where('firebaseId', '=', firebaseId)
       // .select('id')
 }
