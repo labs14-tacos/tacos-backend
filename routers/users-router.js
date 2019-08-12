@@ -39,6 +39,15 @@ router.get('/:id', decodeHeader, async (req, res) => {
   }
 })
 
+// Find By Firebase Id
+router.get('/my_info', decodeHeader, async (req, res) => {
+  Users.findById(req.headers.user.firebaseId).then(user => 
+    res.status(200).json(user)
+    ).catch(error =>  res.status(500).json({
+      message: "There was a server error"
+    }) )
+})
+
 
 // // POST REQUEST
 
@@ -49,10 +58,9 @@ router.post('/', decodeBody, async (req, res) => {
     const email = req.body.user.email;
     const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
     const singleUser = await Users.getUserByFirebaseID(firebaseId);
-    if (singleUser) {
+    if (singleUser.length > 0) {
       console.log("singleUser", singleUser);
       return res.send(singleUser)
-      
     }
     else {
     const newUser = {

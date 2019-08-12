@@ -6,8 +6,6 @@ const admin = require('./firebaseAdmin.js');
 // This is the middleware that checks whether the token sent on the body of the request (first request in the app when someone logs in) is valid.
 function decodeBody(req, res, next) {
   const token = req.body.token;
-  console.log(req.headers, "req.headers in decodeBody");
-  console.log(req.body, "req.body in decodeBody");
   if (token) {
     admin
       .auth()
