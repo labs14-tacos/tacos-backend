@@ -25,6 +25,18 @@ exports.up = function(knex) {
 
   tbl 
     .integer('rating');
+
+  tbl
+    .integer('t-rating');
+  
+  tbl
+    .integer('a-rating');
+  
+  tbl
+    .integer('c-rating');
+  
+  tbl
+    .integer('o-rating');
   
   // tbl
   //   .integer('restaurantId')
@@ -36,7 +48,7 @@ exports.up = function(knex) {
   
   tbl
     .text('notes')
-    .notNullable()
+    .notNullable() 
 
   tbl
     .timestamp('date').defaultTo(knex.fn.now())
