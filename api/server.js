@@ -1,13 +1,13 @@
 // Routers
 const usersRouter = require('../routers/users-router');
 const tacoLogRouter = require('../routers/tacolog-router');
+const profileRouter = require('../routers/userprofile-router');
 
 
 //Dependencies 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const {decodeHeader, decodeBody} = require('../authentication/auth-middleware.js')
 
 //Server Invocation
 const server = express();
@@ -25,6 +25,7 @@ server.use(helmet());
 server.use(logger);
 
 server.use('/api/users', usersRouter);
+server.use('/api', profileRouter);
 server.use('/tacolog', tacoLogRouter);
 
 
