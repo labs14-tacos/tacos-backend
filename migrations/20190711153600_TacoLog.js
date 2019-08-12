@@ -27,16 +27,16 @@ exports.up = function(knex) {
     .integer('rating');
 
   tbl
-    .integer('t-rating');
+    .integer('t_rating');
   
   tbl
-    .integer('a-rating');
+    .integer('a_rating');
   
   tbl
-    .integer('c-rating');
+    .integer('c_rating');
   
   tbl
-    .integer('o-rating');
+    .integer('o_rating');
   
   // tbl
   //   .integer('restaurantId')
