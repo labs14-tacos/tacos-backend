@@ -42,25 +42,6 @@ router.get('/', decodeHeader, async (req, res) => {
     }
   })
 
-// GET Tacologs by User who is Logged In 
-
-router.get('/mytacolog', decodeHeader, async (req, res) => {
-  const firebaseId = req.headers.user.firebaseId
-  try {
-    const test = await TacoLogs.findUserTacosById(firebaseId)
-    if(!test){
-      res.status(404).json({
-        message: "No taco logs belonging to this user could not be found"
-      })
-    } else {
-      res.status(200).json(test)
-    }
-  } catch (error) {
-    res.status(500).json({
-      message: "There was a server error"
-    })
-  }
-})
 
 // GET Tacologs by User's Firebase Id 
   router.get('/user/:firebaseId', decodeHeader, async (req, res) => {

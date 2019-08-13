@@ -15,8 +15,8 @@ exports.up = function(knex) {
   tbl 
     .string('restaurantName')
 
-  // tbl 
-  //   .integer('numberOfTacos')
+   tbl 
+     .integer('numberOfTacos')
   
   tbl.json('ingredients');
   
@@ -38,13 +38,6 @@ exports.up = function(knex) {
   tbl
     .integer('o_rating');
   
-  // tbl
-  //   .integer('restaurantId')
-  //   .unsigned()
-  //   .references('id')
-  //   .inTable('Restaurants')
-  //   .onDelete('CASCADE')
-  //   .onUpdate('CASCADE');
   
   tbl
     .text('notes')
@@ -53,9 +46,7 @@ exports.up = function(knex) {
   tbl
     .timestamp('date').defaultTo(knex.fn.now())
 
-  // tbl
-  //   .json('ratings') // this is for storing a JSON object with the 5 separate ratings on it like: { "t": 5, "a": 4.5, "c": 4, "o": 4.5, "total": 4.5} 
-
+ 
   tbl
     .timestamp('reviewedAt').defaultTo(knex.fn.now())
 
