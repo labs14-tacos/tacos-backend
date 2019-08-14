@@ -39,7 +39,6 @@ router.get('/:id', decodeHeader, async (req, res) => {
   }
 })
 
-
 // // POST REQUEST
 
 // POST New User (register)
@@ -49,10 +48,9 @@ router.post('/', decodeBody, async (req, res) => {
     const email = req.body.user.email;
     const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
     const singleUser = await Users.getUserByFirebaseID(firebaseId);
-    if (singleUser) {
+    if (singleUser.length > 0) {
       console.log("singleUser", singleUser);
       return res.send(singleUser)
-      
     }
     else {
     const newUser = {
