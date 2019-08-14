@@ -12,6 +12,7 @@ exports.seed = function (knex, Promise) {
       "nameOfTaco": "Fish",
       "ingredients": { "cheese": ["Cheddar", "Pepperjack"],
                        "topping": ["bell peppers", "tomatoes", "onions"]},
+      "numberOfTacos": 120,
       // "address": "123 Main St, Hesperia Ca 92345",
       // "ratings": {
       //   "t": 5,
@@ -35,6 +36,7 @@ exports.seed = function (knex, Promise) {
       "nameOfTaco": "Fish",
       "ingredients": { "cheese": ["Cheddar", "Pepperjack"],
                        "topping": ["bell peppers", "tomatoes", "onions"]},
+       "numberOfTacos": 2,
       // "address": "123 Main St, Hesperia Ca 92345",
       // "ratings": {
       //   "t": 5,
@@ -58,6 +60,7 @@ exports.seed = function (knex, Promise) {
       "nameOfTaco": "Fish",
       "ingredients": { "cheese": ["Cheddar", "Pepperjack"],
                        "topping": ["bell peppers", "tomatoes", "onions"]},
+      "numberOfTacos": 5,
       // "address": "123 Main St, Hesperia Ca 92345",
       // "ratings": {
       //   "t": 5,
