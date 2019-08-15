@@ -13,7 +13,16 @@ router.get('/my_info', decodeHeader, async (req, res) => {
         message: "There was a server error"
       }) )
   })
-  
+
+// Find By Firebase Id
+router.get('/tacofan_info/:firebaseId', decodeHeader, async (req, res) => {
+  Users.findById(req.params.firebaseId).then(user => 
+    res.status(200).json(user)
+    ).catch(error =>  res.status(500).json({
+      message: "There was a server error"
+    }) )
+})
+
   
 // GET Tacologs by User who is Logged In 
 
