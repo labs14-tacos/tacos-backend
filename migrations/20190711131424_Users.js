@@ -17,8 +17,6 @@ exports.up = function(knex) {
 
     tbl
       .string('email', 255)
-      .notNullable()
-      .unique();
 
     tbl
       .string('userPhoto');
