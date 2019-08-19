@@ -126,7 +126,9 @@ router.delete('/:id', decodeHeader, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: "There was a server error"
+      message: "There was a server error", 
+      errorMessage: error.message,
+      error: error
     })
   }
 })
