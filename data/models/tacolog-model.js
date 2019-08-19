@@ -49,7 +49,7 @@ function findUserTacosById(firebaseId) {
 
 // Finds all tacologs belonging to signed in user 
 function findMyTacos(firebaseId) {
-  return db('Tacolog')
+  return db('TacoLog')
     .where({
       firebaseId:firebaseId 
     })
@@ -57,7 +57,7 @@ function findMyTacos(firebaseId) {
 
 // deletes tacolog by id
 async function remove(id) {
-  return db('Tacolog')
+  return db('TacoLog')
   .where({id})
   .del();
 }
