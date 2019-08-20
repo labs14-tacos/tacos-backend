@@ -8,60 +8,58 @@ exports.up = function(knex) {
       .unique();
 
     tbl
-      .string('firstName', 255)
+      .string('firstName', 255);
    
-
     tbl
-      .string('lastName', 255)
+      .string('lastName', 255);
       
-
     tbl
-      .string('email', 255)
-      .notNullable()
-      .unique();
+      .string('email', 255);
 
     tbl
       .string('userPhoto');
 
-    // tbl
-    //   .string('zipCode')
-     
-
-    // tbl
-    //   .integer('tacosPerMonth')
-
-    // tbl
-    //   .text('hardOrSoft')
-
-    // tbl
-    //   .text('cornOrFlour')
-
-    // tbl
-    //   .integer('heatPreference')
-
-    // tbl
-    //   .text('streetOrGourmet')
+    tbl
+      .string('location');
+    
+    tbl
+      .string('zipcode');
 
     tbl
-      .text('favTaco')
-
-    // tbl
-    //   .text('favTacoLocation')
-
-    // tbl
-    //   .text('bestTacoMemory')
+      .integer('tacosPerMonth');
 
     tbl
-      .text('instaHandle')
+      .text('hardOrSoft');
 
     tbl
-      .text('twitterHandle')
+      .text('cornOrFlour'); 
 
     tbl
-      .text('facebookPage')
+      .integer('heatPreference');
 
     tbl
-      .text('website')
+      .text('streetOrGourmet');
+
+    tbl
+      .text('favTaco');
+
+    tbl
+      .text('favTacoLocation');
+
+    tbl
+      .text('bestTacoMemory');
+
+    tbl
+      .text('instaHandle');
+
+    tbl
+      .text('twitterHandle');
+
+    tbl
+      .text('facebookPage');
+
+    tbl
+      .text('website');
       
   })
 };

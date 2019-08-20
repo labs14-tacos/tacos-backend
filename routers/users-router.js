@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Users = require('../data/models/users-model');
-const {decodeHeader} = require('../authentication/auth-middleware')
+const {decodeHeader, decodeBody} = require('../authentication/auth-middleware')
 
 // GET REQUESTS
 
@@ -39,39 +39,40 @@ router.get('/:id', decodeHeader, async (req, res) => {
   }
 })
 
-
 // // POST REQUEST
 
 // POST New User (register)
 // this pulls the firebase ID and the email off the token and inserts it into the user table along with everything else
-router.post('/', decodeHeader, async (req, res) => {
-    const firebaseId = req.headers.user.firebaseId;
-    const email = req.headers.user.email;
-    const {firstName, lastName, userPhoto, zipcode, tacosPerMonth, hardOrSoft, cornOrFlour, heatPreference, streetOrGourmet, favTaco, favTacoLocation, bestTacoMemory, instaHandle, twitterHandle, facebookPage} = req.body;
+router.post('/', decodeBody, async (req, res) => {
+    const firebaseId = req.body.user.firebaseId;
+    const email = req.body.user.email;
+    const {firstName, lastName, userPhoto, website, favTaco, instaHandle, twitterHandle, facebookPage} = req.body;
+    const singleUser = await Users.getUserByFirebaseID(firebaseId);
+    if (singleUser.length > 0) {
+      console.log("singleUser", singleUser);
+      return res.send(singleUser)
+    }
+    else {
     const newUser = {
       "firstName": firstName,
       "lastName": lastName,
       "userPhoto": userPhoto,
       "firebaseId": firebaseId,
       "email": email, 
-      "zipcode": zipcode, 
-      "tacosPerMonth": tacosPerMonth,
-      "hardOrSoft": hardOrSoft,
-      "cornOrFlour": cornOrFlour,
-      "heatPreference": heatPreference,
-      "streetOrGourmet": streetOrGourmet,
       "favTaco": favTaco,
-      "favTacoLocation": favTacoLocation,
-      "bestTacoMemory": bestTacoMemory,
       "instaHandle": instaHandle,
       "twitterHandle": twitterHandle,
-      "facebookPage": facebookPage}
+      "facebookPage": facebookPage, 
+      "website": website}
     try {
       const brandNewUser = await Users.add(newUser)
       res.status(201).json(brandNewUser)
     } catch (error) {
-      res.status(500).json(error)
+      console.log(error.message)
+      res.status(500).json({error, message: error.message})
     }
+     
+  }
   })
 
 

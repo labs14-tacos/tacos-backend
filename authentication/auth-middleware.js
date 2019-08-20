@@ -5,8 +5,7 @@ const admin = require('./firebaseAdmin.js');
 // DECODE BODY MIDDLEWARE
 // This is the middleware that checks whether the token sent on the body of the request (first request in the app when someone logs in) is valid.
 function decodeBody(req, res, next) {
-  const { token } = req.body;
-
+  const token = req.body.token;
   if (token) {
     admin
       .auth()
@@ -22,6 +21,7 @@ function decodeBody(req, res, next) {
         res.status(401).json({ message: 'Invalid token!', err });
       });
   } else {
+    
     res.status(401).json({
       Message: `You are missing an authentication token. Please login to obtain one!`,
     });
