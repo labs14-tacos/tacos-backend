@@ -86,16 +86,11 @@ router.put('/:id', decodeHeader, async (req, res) => {
   try {
 
     const id = req.params.id 
-    const{restaurantName, rating} = req.body
   
     // const test = await Users.find(id, req.body)
     const findId = await TacoLogs.findById(id)
 
-   if (!restaurantName || !rating){
-      res.status(400).json({
-        message: "All fields not completed"
-      })
-    } else if(!findId) {
+    if(!findId) {
        res.status(404).json({
          message: "ID could not be found"
        })
