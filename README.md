@@ -21,18 +21,16 @@ To get the server running locally:
 - **yarn server** to start the local server
 - **yarn test** to start server using testing environment
 
-### Backend framework goes here
+### Node.js / Express / Knex / Postgres
 
 🚫 Why did you choose this framework?
 
--    Point One
--    Point Two
--    Point Three
+-    Javascript across the stack
+-    Flexibility
 -    Point Four
 
 ## 2️⃣ Endpoints
 
-🚫This is a placeholder, replace the endpoints, access controll, and descriptioin to match your project
 
 #### Auth Routes
 
@@ -134,13 +132,15 @@ In order for the app to function correctly, the user must set up their own envir
 
 create a .env file that includes the following:
 
-🚫 These are just examples, replace them with the specifics for your app
-    
-    *  STAGING_DB - optional development db for using functionality not available in SQLite
-    *  NODE_ENV - set to "development" until ready for "production"
-    *  JWT_SECRET - you can generate this by using a python shell and running import random''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#\$%^&amp;*(-*=+)') for i in range(50)])
-    *  SENDGRID_API_KEY - this is generated in your Sendgrid account
-    *  stripe_secret - this is generated in the Stripe dashboard
+FB_PROJECT_ID
+FB_PRIVATE_KEY_ID
+FB_PRIVATE_KEY
+FB_CLIENT_EMAIL
+FB_CLIENT_ID
+FB_AUTH_URI
+FB_TOKEN_URI
+FB_AUTH_PROVIDER_X509
+FB_CLIENT_X509
     
 ## Contributing
 
