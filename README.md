@@ -106,27 +106,75 @@ To get the server running locally:
 
 🚫 This is an example, replace this with the actions that pertain to your backend
 
-`getOrgs()` -> Returns all organizations
+## Taco Model 
 
-`getOrg(orgId)` -> Returns a single organization by ID
+// add a taco -- this must have a tacolog Id on the taco object  
+``` async function add(taco) ```
 
-`addOrg(org)` -> Returns the created org
+// return all tacos  
+```function find()```
 
-`updateOrg(orgId)` -> Update an organization by ID
+// find taco by id  
+```function findById(id)```
 
-`deleteOrg(orgId)` -> Delete an organization by ID
-<br>
-<br>
-<br>
-`getUsers(orgId)` -> if no param all users
+// updates taco by id  
+```function update(id, changes)```
 
-`getUser(userId)` -> Returns a single user by user ID
+// Finds all tacos belonging to a tacolog by tacolog Id  
+```function findMyTacologTacos(tacologId)```
 
-`addUser(user object)` --> Creates a new user and returns that user. Also creates 7 availabilities defaulted to hours of operation for their organization.
+// deletes taco by Id  
+```async function remove(id)```
 
-`updateUser(userId, changes object)` -> Updates a single user by ID.
 
-`deleteUser(userId)` -> deletes everything dependent on the user
+
+## Tacolog Model
+
+// add a tacolog   
+```async function add(tacolog)```
+
+// return all tacologs  
+```function find()```
+
+// find tacolog by id  
+```function findById(id)```
+
+// updates tacolog by id  
+```function update(id, changes)```
+
+// Finds all tacologs by User Id   
+```function findUserTacosById(firebaseId)```
+
+// Finds all tacologs belonging to signed in user   
+```function findMyTacos(firebaseId)```
+
+// deletes tacolog by id  
+```async function remove(id)```
+
+
+## User Model
+
+// add a user  
+```async function add(user)``` 
+
+// find all users  
+```function find()``` 
+
+// find user by id  
+```function findById(firebaseId)``` 
+
+// find user by integer ID  
+```function findByIntId(id)``` 
+
+// update user  
+```function update(firebaseId, changes)```
+
+// remove a user  
+```async function removeUser(firebaseId)``` 
+
+// get user by firebase ID  
+```function getUserByFirebaseID(firebaseId)``` 
+
 
 ## 3️⃣ Environment Variables
 
